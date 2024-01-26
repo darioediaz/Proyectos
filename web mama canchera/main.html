@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro de Ventas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    input, select {
+      margin-bottom: 20px;
+      padding: 5px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Registro de Ventas</h1>
+  </header>
+  
+  <main>
+    <form id="salesForm">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" required>
+      
+      <label for="product">Producto:</label>
+      <input type="text" id="product" required>
+      
+      <label for="detail">Detalle:</label>
+      <input type="text" id="detail" required>
+      
+      <label for="price">Precio:</label>
+      <input type="number" id="price" required>
+      
+      <label for="date">Fecha:</label>
+      <input type="date" id="date" required>
+      
+      <button type="submit">Registrar Venta</button>
+    </form>
+    
+    <table id="salesTable">
+      <thead>
+        <tr>
+          <th>Número de Venta</th>
+          <th>Nombre</th>
+          <th>Producto</th>
+          <th>Detalle</th>
+          <th>Precio</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </main>
+  
+  <script>
+    const salesForm = document.getElementById('salesForm');
+    const salesTable = document.getElementById('salesTable');
+
+    let saleNumber = 1;
+
+    salesForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nameInput = document.getElementById('name');
+      const productInput = document.getElementById('product');
+      const detailInput = document.getElementById('detail');
+      const priceInput = document.getElementById('price');
+      const dateInput = document.getElementById('date');
+
+      const name = nameInput.value;
+      const product = productInput.value;
+      const detail = detailInput.value;
+      const price = priceInput.value;
+      const date = dateInput.value;
+
+      addSaleToTable(saleNumber, name, product, detail, price, date);
+
+      saleNumber++;
+
+      nameInput.value = '';
+      productInput.value = '';
+      detailInput.value = '';
+      priceInput.value = '';
+      dateInput.value = '';
+    });
+
+    function addSaleToTable(saleNumber, name, product, detail, price, date) {
+      const row = document.createElement('tr');
+
+      const saleNumberCell = document.createElement('td');
+      saleNumberCell.textContent = saleNumber;
+      row.appendChild(saleNumberCell);
+
+      const nameCell = document.createElement('td');
+      nameCell.textContent = name;
+      row.appendChild(nameCell);
+
+      const productCell = document.createElement('td');
+      productCell.textContent = product;
+      row.appendChild(productCell);
+
+      const detailCell = document.createElement('td');
+      detailCell.textContent = detail;
+      row.appendChild(detailCell);
+
+      const priceCell = document.createElement('td');
+      priceCell.textContent = `$${price}`;
+      row.appendChild(priceCell);
+
+      const dateCell = document.createElement('td');
+      dateCell.textContent = date;
+      row.appendChild(dateCell);
+
+      salesTable.querySelector('tbody').appendChild(row);
+    }
+  </script>
+</body>
+</html>
