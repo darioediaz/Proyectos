@@ -1,1 +1,0 @@
-print(f"Soy un archivo nuevo creado desde la tablet")
