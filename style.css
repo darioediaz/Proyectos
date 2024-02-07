@@ -90,37 +90,37 @@ body{
 }
 
 @media all and (min-width: 800px) {
-.main{
-    flex: 3;
-}
-.side1{
-    order: 1;
-}
-.side2{
-    order: 2;
-}
-.main{
-    order: 1;
-}
-.footer{
-    order: 4;
-}
+    .main{
+        flex: 3;
+    }
+    .side1{
+        order: 1;
+    }
+    .side2{
+        order: 2;
+    }
+    .main{
+        order: 2;
+    }
+    .footer{
+        order: 4;
+    }
 }
 
 @media all and (min-width: 600px) {
     .side{
-        flex: 3;
+        flex: 1;
     }
     .side1{
-        order: 2;
+        order: 1;
     }
     .side2{
         order: 3;
     }
     .main{
-        order: 1;
+        order: 2;
     }
     .footer{
         order: 4;
     }
-    }
+}
