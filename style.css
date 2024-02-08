@@ -69,24 +69,29 @@ body{
 .header{
     background-color: chartreuse;
     height: 120px;
+    border-radius: 10px;
 }
 
 .footer{
     background-color: aqua;
     height: 80px;
+    border-radius: 10px;
 }
 
 .main{
     background-color: chocolate;
     height: 300px;
+    border-radius: 10px;
 }
 
 .side1{
     background-color: yellow;
+    border-radius: 10px;
 }
 
 .side2{
     background-color: pink;
+    border-radius: 10px;
 }
 
 @media all and (min-width: 800px) {
@@ -123,4 +128,22 @@ body{
     .footer{
         order: 4;
     }
+}
+
+.productos {
+    width: 200px;
+    height: 200px;
+    background-color: whitesmoke;
+    padding: 1em;
+    font-weight: 700;
+    color: var(--clr-light);
+    text-align: center;
+    border: 10px solid var(--clr-accent);
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    gap: 50px;
 }
